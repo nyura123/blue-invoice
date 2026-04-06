@@ -1,0 +1,6 @@
+node_modules
+dist
+.DS_Store
+.wisp-serve
+.env.local
+.env.*.local

@@ -1,0 +1,290 @@
+<html>
+
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Mono:wght@300;400;500&display=swap"
+        rel="stylesheet" />
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --bg: #f5f2ec;
+            --surface: #ffffff;
+            --ink: #1a1714;
+            --ink-muted: #6b6560;
+            --accent: #c8471a;
+            --accent-light: #f5e8e2;
+            --border: #e0dbd3;
+            --mono: "DM Mono", monospace;
+            --serif: "DM Serif Display", serif;
+        }
+
+        body {
+            font-family: var(--mono);
+            background: var(--surface);
+            color: var(--ink);
+            font-size: 13px;
+        }
+
+        @media print {
+            * {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            @page {
+                margin: 0;
+                padding: 0;
+            }
+        }
+
+        .inv-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 40px;
+        }
+
+        .inv-brand {
+            font-family: var(--serif);
+            font-size: 1.8rem;
+            color: var(--ink);
+            letter-spacing: -0.02em;
+        }
+
+        .inv-label {
+            font-size: 0.65rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--ink-muted);
+        }
+
+        .inv-number {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--accent);
+            margin-top: 2px;
+        }
+
+        .inv-divider {
+            height: 1px;
+            background: var(--border);
+            margin: 24px 0;
+        }
+
+        .inv-meta {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-bottom: 32px;
+        }
+
+        .inv-meta-item .inv-label {
+            margin-bottom: 4px;
+        }
+
+        .inv-meta-item .inv-val {
+            font-size: 0.82rem;
+            color: var(--ink);
+            line-height: 1.4;
+        }
+
+        .inv-party {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 32px;
+        }
+
+        .inv-party-box {
+            background: var(--bg);
+            border-radius: 3px;
+            padding: 16px;
+        }
+
+        .inv-party-box .inv-label {
+            margin-bottom: 8px;
+        }
+
+        .inv-party-box .name {
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 2px;
+        }
+
+        .inv-party-box .detail {
+            font-size: 0.75rem;
+            color: var(--ink-muted);
+            line-height: 1.6;
+        }
+
+        .inv-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 24px;
+            font-size: 0.8rem;
+        }
+
+        .inv-table thead tr {
+            border-bottom: 2px solid var(--ink);
+        }
+
+        .inv-table th {
+            text-align: left;
+            font-size: 0.65rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--ink-muted);
+            padding: 0 0 10px 0;
+            font-weight: 400;
+        }
+
+        .inv-table th:last-child,
+        .inv-table td:last-child {
+            text-align: right;
+        }
+
+        .inv-table td {
+            padding: 14px 0;
+            vertical-align: top;
+            border-bottom: 1px solid var(--border);
+            line-height: 1.5;
+        }
+
+        .inv-table td.desc {
+            color: var(--ink);
+            max-width: 240px;
+        }
+
+        .inv-table td.muted {
+            color: var(--ink-muted);
+        }
+
+        .inv-total-row {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 4px;
+        }
+
+        .inv-total-box {
+            text-align: right;
+        }
+
+        .inv-total-box .inv-label {
+            margin-bottom: 4px;
+        }
+
+        .inv-total-box .amount {
+            font-family: var(--serif);
+            font-size: 1.8rem;
+            color: var(--accent);
+            letter-spacing: -0.02em;
+        }
+
+        .inv-footer {
+            margin-top: 32px;
+            padding-top: 16px;
+            border-top: 1px solid var(--border);
+            font-size: 0.7rem;
+            color: var(--ink-muted);
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+
+<body>
+    <div style="padding: 30px">
+        <!-- Top -->
+        <div class="inv-top">
+            <div class="inv-brand">{SENDER_NAME}</div>
+            <div style="text-align: right">
+                <div class="inv-label">Invoice</div>
+                <div class="inv-number">#{INVOICE_NO}</div>
+            </div>
+        </div>
+
+        <div class="inv-divider"></div>
+
+        <!-- Meta -->
+        <div class="inv-meta">
+            <div class="inv-meta-item">
+                <div class="inv-label">From</div>
+                <div class="inv-val">
+                    {DATE_FROM}
+                </div>
+            </div>
+            <div class="inv-meta-item">
+                <div class="inv-label">To</div>
+                <div class="inv-val">{DATE_TO}</div>
+            </div>
+            <div class="inv-meta-item">
+                <div class="inv-label" style="text-align: right;">Invoice Date</div>
+                <div class="inv-val" style="text-align: right;">{INVOICE_DATE}</div>
+            </div>
+            <div class="inv-meta-item">
+                <div class="inv-label" style="text-align: right;">Due Date</div>
+                <div class="inv-val" style="text-align: right;">{DUE_DATE}</div>
+            </div>
+        </div>
+
+        <!-- Parties -->
+        <div class="inv-party">
+            <div class="inv-party-box">
+                <div class="inv-label">From</div>
+                <div class="name">{SENDER_NAME}</div>
+                <div class="detail">{SENDER_ADDRESS}</div>
+                <div class="detail">{SENDER_CITY_STATE_ZIP}</div>
+                <div class="detail">{SENDER_EMAIL}</div>
+                <div class="detail">{SENDER_PHONE}</div>
+            </div>
+            <div class="inv-party-box">
+                <div class="inv-label">To</div>
+                <div class="name">{CLIENT_NAME}</div>
+                <!-- <div class="detail">{CLIENT_EMAIL}</div> -->
+            </div>
+        </div>
+
+        <!-- Table -->
+        <table class="inv-table">
+            <thead>
+                <tr>
+                    <th>Description</th>
+                    <th>Days</th>
+                    <th>Hours</th>
+                    <th>Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="desc">{DESCRIPTION}</td>
+                    <td class="muted">{DAYS}</td>
+                    <td class="muted">{HOURS}</td>
+                    <td>{AMOUNT}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Total -->
+        <div class="inv-total-row">
+            <div class="inv-total-box">
+                <div class="inv-label">Total Due</div>
+                <div class="amount">{AMOUNT}</div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="inv-footer">
+            <span>{SENDER_EMAIL}<br />{SENDER_PHONE}</span>
+            <span>Invoice #{INVOICE_NO}</span>
+        </div>
+    </div>
+</body>
+
+</html>

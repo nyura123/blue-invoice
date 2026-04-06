@@ -1,0 +1,351 @@
+<html>
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=DM+Serif+Display:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      @media print {
+        * {
+          -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
+        }
+        @page {
+          margin: 0;
+          padding: 0;
+        }
+      }
+
+      :root {
+        --navy: #4b6f9b;
+        --navy-light: #3d6494;
+        --blue: #4080b8;
+        --sky: #d6e8f7;
+        --sky-mid: #b8d4ea;
+        --ink: #1a2e42;
+        --ink-soft: #4a5568;
+        --muted: #8fa3b8;
+        --bg: #f7fafd;
+        --white: #ffffff;
+      }
+
+      body {
+        font-family: "DM Sans", sans-serif;
+        background: var(--white);
+        color: var(--ink);
+        font-size: 11px;
+        font-weight: 300;
+        line-height: 1.6;
+      }
+
+      /* ── Header band ── */
+      .header-band {
+        background: linear-gradient(
+          135deg,
+          var(--navy) 0%,
+          var(--navy-light) 60%,
+          #5a8abc 100%
+        );
+        padding: 40px 56px 36px;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+      }
+
+      .sender-name {
+        font-family: "DM Serif Display", serif;
+        font-size: 26px;
+        font-weight: 400;
+        color: var(--white);
+        letter-spacing: 0.01em;
+        line-height: 1.15;
+        margin-bottom: 8px;
+      }
+
+      .sender-details {
+        font-size: 10px;
+        color: var(--sky-mid);
+        line-height: 1.8;
+        letter-spacing: 0.02em;
+      }
+
+      .invoice-title-block {
+        text-align: right;
+      }
+
+      .invoice-word {
+        font-family: "DM Serif Display", serif;
+        font-style: italic;
+        font-size: 38px;
+        color: var(--sky);
+        letter-spacing: 0.02em;
+        line-height: 1;
+        display: block;
+      }
+
+      .invoice-number {
+        font-size: 10px;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--sky-mid);
+        margin-top: 6px;
+      }
+
+      /* ── Accent bar ── */
+      .accent-bar {
+        height: 3px;
+        background: linear-gradient(
+          90deg,
+          var(--blue) 0%,
+          var(--sky-mid) 60%,
+          transparent 100%
+        );
+      }
+
+      /* ── Body ── */
+      .body {
+        padding: 44px 56px 56px;
+        background: var(--white);
+      }
+
+      /* ── Meta ── */
+      .meta {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 44px;
+        padding-bottom: 32px;
+        border-bottom: 1px solid var(--sky);
+      }
+
+      .label {
+        font-size: 8.5px;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--blue);
+        font-weight: 500;
+        margin-bottom: 7px;
+      }
+
+      .bill-to-name {
+        font-family: "DM Serif Display", serif;
+        font-size: 18px;
+        color: var(--ink);
+        letter-spacing: 0.01em;
+      }
+
+      .dates-block {
+        display: flex;
+        gap: 40px;
+      }
+
+      .date-item {
+        text-align: right;
+      }
+
+      .date-value {
+        font-size: 11px;
+        color: var(--ink-soft);
+        font-weight: 400;
+      }
+
+      /* ── Line items ── */
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 0;
+      }
+
+      thead th {
+        font-size: 8.5px;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--blue);
+        font-weight: 500;
+        padding: 0 12px 12px 0;
+        text-align: left;
+        border-bottom: 2px solid var(--sky);
+      }
+
+      thead th:last-child {
+        text-align: right;
+        padding-right: 0;
+      }
+
+      tbody td {
+        padding: 20px 12px 20px 0;
+        border-bottom: 1px solid var(--sky);
+        vertical-align: top;
+        color: var(--ink-soft);
+        font-size: 11px;
+      }
+
+      tbody td:last-child {
+        text-align: right;
+        padding-right: 0;
+        font-weight: 500;
+        color: var(--ink);
+      }
+
+      .item-desc {
+        font-weight: 400;
+        color: var(--ink);
+        margin-bottom: 3px;
+        font-size: 12px;
+      }
+
+      .item-sub {
+        font-size: 9.5px;
+        color: var(--muted);
+        letter-spacing: 0.02em;
+      }
+
+      /* ── Total box ── */
+      .total-section {
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 32px;
+      }
+
+      .total-box {
+        background: linear-gradient(
+          135deg,
+          var(--navy) 0%,
+          var(--navy-light) 100%
+        );
+        border-radius: 4px;
+        padding: 20px 28px;
+        display: flex;
+        align-items: center;
+        gap: 32px;
+        min-width: 260px;
+        box-shadow: 0 4px 16px rgba(42, 74, 114, 0.18);
+      }
+
+      .total-label {
+        font-size: 8.5px;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--sky-mid);
+        font-weight: 500;
+      }
+
+      .total-amount {
+        font-family: "DM Serif Display", serif;
+        font-size: 24px;
+        color: var(--white);
+        letter-spacing: 0.01em;
+        margin-left: auto;
+      }
+
+      /* ── Footer ── */
+      .footer {
+        margin-top: 56px;
+        padding-top: 20px;
+        border-top: 1px solid var(--sky);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .footer-note {
+        font-size: 9px;
+        color: var(--muted);
+        letter-spacing: 0.06em;
+      }
+
+      .footer-due {
+        font-size: 9px;
+        color: var(--ink-soft);
+        letter-spacing: 0.04em;
+      }
+
+      .footer-due strong {
+        color: var(--blue);
+        font-weight: 500;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header band -->
+    <div class="header-band">
+      <div>
+        <div class="sender-name">{SENDER_NAME}</div>
+        <div class="sender-details">
+          {SENDER_ADDRESS} &nbsp;·&nbsp; {SENDER_CITY_STATE_ZIP}<br />
+          {SENDER_EMAIL} &nbsp;·&nbsp; {SENDER_PHONE}
+        </div>
+      </div>
+      <div class="invoice-title-block">
+        <span class="invoice-word">Invoice</span>
+        <div class="invoice-number">{INVOICE_NO}</div>
+      </div>
+    </div>
+
+    <div class="accent-bar"></div>
+
+    <div class="body">
+      <!-- Meta -->
+      <div class="meta">
+        <div>
+          <div class="label">Bill to</div>
+          <div class="bill-to-name">{CLIENT_NAME}</div>
+        </div>
+        <div class="dates-block">
+          <div class="date-item">
+            <div class="label">Invoice date</div>
+            <div class="date-value">{INVOICE_DATE}</div>
+          </div>
+          <div class="date-item">
+            <div class="label">Due date</div>
+            <div class="date-value">{DUE_DATE}</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Line items -->
+      <table>
+        <thead>
+          <tr>
+            <th>Description</th>
+            <th>Rate</th>
+            <th>Hours</th>
+            <th>Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <div class="item-desc">{DESCRIPTION}</div>
+              <div class="item-sub">{FROM_TO}</div>
+            </td>
+            <td>{HOURLY_RATE}</td>
+            <td>{HOURS}</td>
+            <td>{AMOUNT}</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Total -->
+      <div class="total-section">
+        <div class="total-box">
+          <div class="total-label">Total due</div>
+          <div class="total-amount">{AMOUNT}</div>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div class="footer">
+        <div class="footer-note">Thank you for your business.</div>
+        <div class="footer-due">Payment due by <strong>{DUE_DATE}</strong></div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,179 @@
+<html>
+  <head>
+    <style>
+      body {
+        /* margin: 70px 70px; */
+        color: rgb(98, 109, 120);
+        font-family: Arial, Helvetica, sans-serif;
+        letter-spacing: 0.8px;
+        font-size: 10px;
+        margin: 0;
+        padding-top: 0px;
+        width: 100%;
+        /* font-weight: ; */
+        /* font-size: 1rem; */
+      }
+      @media print {
+        * {
+          -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
+        }
+        @page {
+          margin: 0;
+          padding: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div style="padding: 30px 70px; padding-top: 70px; background-color: white">
+      <div style="font-weight: bold; font-size: 1.5rem; margin-bottom: 50px">
+        INVOICE
+      </div>
+      <div style="display: flex; flex-direction: row">
+        <div style="width: 250px">
+          <div
+            style="font-weight: bolder; font-size: 0.8rem; margin-bottom: 8px"
+          >
+            {SENDER_NAME}
+          </div>
+          <div style="font-size: 0.8rem; margin-bottom: 8px">
+            {SENDER_ADDRESS}
+          </div>
+          <div style="font-size: 0.8rem; margin-bottom: 8px">
+            {SENDER_CITY_STATE_ZIP}
+          </div>
+        </div>
+        <div>
+          <div style="font-size: 0.8rem; margin-bottom: 8px">
+            {SENDER_EMAIL}
+          </div>
+          <div style="font-size: 0.8rem; margin-bottom: 8px">
+            {SENDER_PHONE}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="padding: 30px 70px; background-color: rgb(237, 235, 235)">
+      <div style="font-weight: bold; font-size: 1.2rem; margin-bottom: 30px">
+        {CLIENT_NAME}
+      </div>
+      <div style="display: flex; flex-direction: row">
+        <div style="width: 250px">
+          <div
+            style="font-weight: bolder; font-size: 0.8rem; margin-bottom: 8px"
+          >
+            Bill to
+          </div>
+          <div style="font-size: 0.8rem; margin-bottom: 8px">{CLIENT_NAME}</div>
+        </div>
+        <div>
+          <div
+            style="font-weight: bolder; font-size: 0.8rem; margin-bottom: 8px"
+          >
+            Invoice details
+          </div>
+          <div style="font-size: 0.8rem; margin-bottom: 8px">
+            Invoice no.: {INVOICE_NO}
+          </div>
+          <div style="font-size: 0.8rem; margin-bottom: 8px">
+            Invoice date: {INVOICE_DATE}
+          </div>
+          <div style="font-size: 0.8rem; margin-bottom: 8px">
+            Due date: {DUE_DATE}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      style="
+        padding: 30px 70px;
+        background-color: white;
+        color: rgb(150, 147, 147);
+      "
+    >
+      <div
+        style="
+          margin-bottom: 5px;
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+        "
+      >
+        <div style="font-size: 0.8rem">Service</div>
+        <div style="font-size: 0.8rem">Amount</div>
+      </div>
+      <div style="height: 1px; background-color: lightgray"></div>
+    </div>
+
+    <div style="padding: 30px 70px; background-color: white">
+      <div
+        style="
+          border-bottom: 1px solid lightgray;
+          padding-bottom: 10px;
+          margin-bottom: 5px;
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+        "
+      >
+        <div style="width: 300px; font-size: 0.8rem">
+          <b>{DESCRIPTION}</b><br />{FROM_TO}
+        </div>
+        <div style="width: 250px; font-size: 0.8rem; text-align: right">
+          {HOURS} hours * {HOURLY_RATE}
+        </div>
+        <div
+          style="
+            flex: 1;
+            min-width: 160px;
+            text-align: right;
+            font-size: 0.8rem;
+          "
+        >
+          {AMOUNT}
+        </div>
+      </div>
+    </div>
+
+    <div style="padding: 30px 70px; background-color: white">
+      <div
+        style="
+          margin-bottom: 5px;
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+        "
+      >
+        <div style="width: 300px; font-size: 0.8rem"></div>
+        <div
+          style="
+            display: flex;
+            width: 250px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            text-align: right;
+          "
+        >
+          <div style="flex: 1"></div>
+          <div style="border-bottom: 1px solid lightgray; padding-bottom: 10px">
+            Total
+          </div>
+        </div>
+        <div
+          style="
+            font-weight: bolder;
+            flex: 1;
+            min-width: 160px;
+            text-align: right;
+            border-bottom: 1px solid lightgrey;
+            font-size: 1rem;
+            padding-bottom: 10px;
+          "
+        >
+          {AMOUNT}
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
