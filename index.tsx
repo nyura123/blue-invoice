@@ -114,7 +114,7 @@ function App() {
   function handleRestoreSavedData() {
     const storedUserName = localStorage.getItem(userNameStorageKey) || "";
     openPasswordModal({
-      title: "Restore saved data",
+      title: "Restore data",
       initialUsername: storedUserName,
       onConfirm: async (password, username) => {
         const restoredForm = await restoreEncryptedForm(password, username);

@@ -14,7 +14,7 @@ export const SaveFormDataActions = ({
         Save data
       </button>
       <button className="btn btn-secondary btn-sm" onClick={onRestoreSavedData}>
-        Restore saved data
+        Restore data
       </button>
     </div>
   );
@@ -37,7 +37,7 @@ export const InvoiceForm = ({
     <div>
       <div className="panel">
         <div className="panel-title">
-          Invoice Details
+          Details
           <SaveFormDataActions
             onSaveData={onSaveData}
             onRestoreSavedData={onRestoreSavedData}
