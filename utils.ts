@@ -67,6 +67,7 @@ export const scrollToTopAndWait = async (): Promise<void> => {
 
 export const TEMPLATES: Template[] = [
   { id: "classic", label: "Classic", path: "/invoice_template.html" },
+  { id: "artemis", label: "Artemis", path: "/invoice_template_artemis.html" },
   { id: "minimal", label: "Minimal", path: "/invoice_template_minimal.html" },
   { id: "elegant", label: "Elegant", path: "/invoice_template_elegant.html" },
   { id: "blue", label: "Blue", path: "/invoice_template_blue.html" },
